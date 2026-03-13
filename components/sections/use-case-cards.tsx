@@ -2,29 +2,42 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { ShieldCheck, BarChart3, CheckSquare } from "lucide-react";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 
 const personas = [
   {
+    icon: CheckSquare,
     title: "QA Manager",
     description:
       "Stop random sampling. Get 100% automated coverage with custom quality criteria defined in your words.",
-    borderColor: "border-t-[#3B82F6]",
+    borderColor: "border-t-blue-500",
+    iconBg: "bg-blue-500/10",
+    iconColor: "text-blue-500",
+    gradientFrom: "from-blue-50/40",
     href: "/use-cases",
   },
   {
+    icon: BarChart3,
     title: "Operations Director",
     description:
       "Scale QA without scaling headcount. 150x more coverage at half the cost of one hire.",
-    borderColor: "border-t-[#06B6D4]",
+    borderColor: "border-t-cyan-500",
+    iconBg: "bg-cyan-500/10",
+    iconColor: "text-cyan-500",
+    gradientFrom: "from-cyan-50/40",
     href: "/use-cases",
   },
   {
+    icon: ShieldCheck,
     title: "Compliance Officer",
     description:
       "Every call checked. Every violation flagged. Full audit trail for regulators.",
-    borderColor: "border-t-[#F59E0B]",
+    borderColor: "border-t-amber-500",
+    iconBg: "bg-amber-500/10",
+    iconColor: "text-amber-500",
+    gradientFrom: "from-amber-50/40",
     href: "/use-cases",
   },
 ];
@@ -37,7 +50,7 @@ export function UseCaseCards() {
           <p className="text-xs font-semibold uppercase tracking-widest text-[#3B82F6]">
             Built for Your Role
           </p>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-gray-900 md:text-4xl">
+          <h2 className="mt-3 text-3xl font-bold text-gray-900 md:text-4xl">
             Solve Your Specific Challenge
           </h2>
         </div>
@@ -56,9 +69,12 @@ export function UseCaseCards() {
             >
               <Link
                 href={persona.href}
-                className={`group block rounded-xl border border-gray-200 border-t-4 ${persona.borderColor} bg-white p-6 shadow-sm transition-shadow hover:shadow-md`}
+                className={`group block rounded-xl border border-gray-200 border-t-4 ${persona.borderColor} bg-gradient-to-b ${persona.gradientFrom} to-white p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:shadow-black/5 hover:-translate-y-0.5`}
               >
-                <h3 className="text-lg font-semibold text-gray-900">
+                <div className={`inline-flex h-10 w-10 items-center justify-center rounded-lg ${persona.iconBg}`}>
+                  <persona.icon className={`h-5 w-5 ${persona.iconColor}`} />
+                </div>
+                <h3 className="mt-4 text-lg font-semibold text-gray-900">
                   {persona.title}
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-gray-600">

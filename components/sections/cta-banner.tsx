@@ -24,9 +24,19 @@ export function CTABanner({
   secondaryHref = "#",
 }: CTABannerProps) {
   return (
-    <Section dark className="text-center">
-      <Container>
-        <h2 className="text-3xl font-bold tracking-tight text-white md:text-4xl">
+    <Section dark className="relative overflow-hidden text-center">
+      {/* Background effects */}
+      <div
+        className="absolute inset-0 opacity-[0.04]"
+        style={{
+          backgroundImage: "radial-gradient(circle, #94a3b8 1px, transparent 1px)",
+          backgroundSize: "20px 20px",
+        }}
+      />
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[400px] w-[400px] rounded-full bg-blue-500/10 blur-[100px]" />
+
+      <Container className="relative">
+        <h2 className="text-3xl font-bold text-white md:text-4xl">
           {headline}
         </h2>
         <p className="mt-4 text-lg text-gray-300">{subtext}</p>

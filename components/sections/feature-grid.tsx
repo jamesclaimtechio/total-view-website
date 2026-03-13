@@ -13,6 +13,11 @@ const features = [
     description:
       "99.2% accuracy with speaker diarisation and sentiment detection across every call.",
     href: "/features",
+    color: "blue",
+    borderColor: "border-t-blue-500",
+    iconBg: "bg-blue-500/10",
+    iconColor: "text-blue-500",
+    hoverGradient: "group-hover:from-blue-50/80",
   },
   {
     icon: ClipboardCheck,
@@ -20,6 +25,11 @@ const features = [
     description:
       "Define criteria in plain English. AI evaluates pass/fail with evidence — no templates needed.",
     href: "/features",
+    color: "cyan",
+    borderColor: "border-t-cyan-500",
+    iconBg: "bg-cyan-500/10",
+    iconColor: "text-cyan-500",
+    hoverGradient: "group-hover:from-cyan-50/80",
   },
   {
     icon: Users,
@@ -27,6 +37,11 @@ const features = [
     description:
       "Performance dashboards, leaderboards, and data-driven coaching recommendations.",
     href: "/features",
+    color: "emerald",
+    borderColor: "border-t-emerald-500",
+    iconBg: "bg-emerald-500/10",
+    iconColor: "text-emerald-500",
+    hoverGradient: "group-hover:from-emerald-50/80",
   },
   {
     icon: Brain,
@@ -34,6 +49,11 @@ const features = [
     description:
       "Churn signals, competitor mentions, feature requests, and sentiment trends from every call.",
     href: "/features",
+    color: "amber",
+    borderColor: "border-t-amber-500",
+    iconBg: "bg-amber-500/10",
+    iconColor: "text-amber-500",
+    hoverGradient: "group-hover:from-amber-50/80",
   },
 ];
 
@@ -45,7 +65,7 @@ export function FeatureGrid() {
           <p className="text-xs font-semibold uppercase tracking-widest text-[#3B82F6]">
             Capabilities
           </p>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-gray-900 md:text-4xl">
+          <h2 className="mt-3 text-3xl font-bold text-gray-900 md:text-4xl">
             Everything You Need to Understand Every Call
           </h2>
         </div>
@@ -64,9 +84,11 @@ export function FeatureGrid() {
             >
               <Link
                 href={feature.href}
-                className="group block rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
+                className={`group block rounded-xl border border-gray-200 border-t-2 ${feature.borderColor} bg-gradient-to-b from-white to-white ${feature.hoverGradient} p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:shadow-black/5 hover:-translate-y-0.5`}
               >
-                <feature.icon className="h-6 w-6 text-[#3B82F6]" />
+                <div className={`inline-flex h-10 w-10 items-center justify-center rounded-lg ${feature.iconBg}`}>
+                  <feature.icon className={`h-5 w-5 ${feature.iconColor}`} />
+                </div>
                 <h3 className="mt-4 text-lg font-semibold text-gray-900">
                   {feature.title}
                 </h3>
